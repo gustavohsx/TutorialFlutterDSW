@@ -55,17 +55,28 @@ class _LoginPageState extends State<LoginPage> {
                     SizedBox(
                       width: 150,
                       height: 50,
-                      child: ElevatedButton(
+                      child: TextButton.icon(
                         onPressed: () {
                           Navigator.pushNamedAndRemoveUntil(
-                              context, '/home', (route) => false, arguments: {
-                            'email': _emailController.text,
-                            'password': _passwordController.text
-                          });
+                            context,
+                            '/home',
+                            (route) => false,
+                            arguments: {
+                              "email": _emailController.text,
+                              "password": _passwordController.text,
+                            },
+                          );
                         },
-                        child: const Text(
-                          'Entrar',
-                          style: TextStyle(fontSize: 20),
+                        icon: const Icon(
+                          Icons.login,
+                          color: Colors.lightBlue,
+                        ),
+                        label: const Text(
+                          'Login',
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.lightBlue,
+                          ),
                         ),
                       ),
                     ),

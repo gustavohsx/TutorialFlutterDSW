@@ -22,17 +22,30 @@ class _HomePageState extends State<HomePage> {
     }
 
     return Scaffold(
-      primary: true,
       appBar: AppBar(
         title: const Text('Página Inicial'),
+        backgroundColor: Colors.lightBlue,
       ),
       body: Padding(
         padding: const EdgeInsets.all(12),
-        child: Center(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text('Email: ${args['email']}'),
+            Text('Senha: ${args['password']}'),
+          ],
+        ),
+      ),
+      drawer: Drawer(
+        child: Padding(
+          padding: const EdgeInsets.all(12),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Email: ${args['email']}'),
-              Text('Senha: ${args['password']}'),
+              const Text('Menu'),
+              const SizedBox(
+                height: 20,
+              ),
               ElevatedButton(
                 onPressed: () {
                   Navigator.popAndPushNamed(context, '/login');
@@ -41,12 +54,6 @@ class _HomePageState extends State<HomePage> {
               ),
             ],
           ),
-        ),
-      ),
-      drawer: const Drawer(
-        child: Padding(
-          padding: EdgeInsets.all(12),
-          child: Text('Menu'),
         ),
       ),
     );
